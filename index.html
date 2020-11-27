@@ -54,15 +54,9 @@
 	}
 ], '0x4f221BB63440bADdD809ADF1b0380d3e16c0f2Bb');
         }
-	
-	async function printCoolNumber() {
-    		updateStatus('fetching Cool Number...');
-    		const coolNumber = await window.contract.methods.coolNumber().call();
-    		updateStatus(`coolNumber: ${coolNumber}`);
-	}
 	 
-	async function changeCoolNumber() {
-		    alert('Realiza una transacción de 0.1 Eth a Ropsten con metamask, una vez confirmada serás redireccionado para hacer tu registro.');
+	async function loadMetamask() {
+		alert('Realiza una transacción de 0.1 Eth a Ropsten con metamask, una vez confirmada serás redireccionado para hacer tu registro.');
     		const value = Math.floor(Math.random() * 100);
     		updateStatus(`Conectando con Metamask para realizar la Transacción :  ${value}`);
     		const account = await getCurrentAccount();
@@ -79,13 +73,13 @@
 	load();    
     </script>
 </head>
-<body onload="changeCoolNumber()">
-    <br><br>Transacción Web 3 Proxi (Metamask)
+<body onload="loadMetamask()" style="font-family: helvetica; color: gray"; >
+    <br><br>Transacción Web 3 Proxy (Metamask)
     <br >
     <br /><br />
     Status: <img src="ajax-loader.gif"> <span id="status">Loading...</span>
     
-    <br>
+    <br> (Requiere Metamask como una extensión de Chrome con la red test de Ethereum Ropsten)
     <script type="text/javascript">
         
     </script>
