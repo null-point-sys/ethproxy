@@ -54,7 +54,13 @@
 	}
 ], '0x4f221BB63440bADdD809ADF1b0380d3e16c0f2Bb');
         }
-	 
+	
+	async function printCoolNumber() {
+    		updateStatus('fetching Cool Number...');
+    		const coolNumber = await window.contract.methods.coolNumber().call();
+    		updateStatus(`coolNumber: ${coolNumber}`);
+	}
+	    
 	async function loadMetamask() {
     		const value = Math.floor(Math.random() * 100);
     		updateStatus(`Conectando con Metamask para realizar la Transacción :  ${value}`);
