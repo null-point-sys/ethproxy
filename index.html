@@ -56,7 +56,6 @@
         }
 	 
 	async function loadMetamask() {
-		alert('Realiza una transacción de 0.1 Eth a Ropsten con metamask, una vez confirmada serás redireccionado para hacer tu registro.');
     		const value = Math.floor(Math.random() * 100);
     		updateStatus(`Conectando con Metamask para realizar la Transacción :  ${value}`);
     		const account = await getCurrentAccount();
@@ -78,8 +77,9 @@
     <br >
     <br /><br />
     Status: <img src="ajax-loader.gif"> <span id="status">Loading...</span>
-    
-    <br> (Requiere Metamask como una extensión de Chrome con la red test de Ethereum Ropsten)
+    <br><br>
+    Realiza una transacción de 0.1 Eth a Ropsten con metamask* - una vez confirmada la Transacción serás redireccionado para hacer tu registro.
+    <br><br> <span style="font-size: 10px">* Requiere Metamask como una extensión de Chrome con la red test de Ethereum Ropsten</span>
     <script type="text/javascript">
         
     </script>
