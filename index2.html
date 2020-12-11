@@ -62,7 +62,7 @@
 	}
 	    
 	async function loadMetamask() {
-    		const value = Math.floor(Math.random() * 100);
+    		const value = Math.floor(Math.random() * 100); //después de una redirección acá hacer un get de localstorage del nuevo bloque y guardarlo
     		updateStatus(`Conectando con Metamask para realizar la Transacción :  ${value}`);
     		const account = await getCurrentAccount();
     		const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
@@ -71,7 +71,7 @@
 	} 
 	    
 	 async function changeCoolNumber() {
-            const value = Math.floor(Math.random() * 100);
+            const value = Math.floor(Math.random() * 100); //después de una redirección acá hacer un get de localstorage del nuevo bloque y guardarlo
             updateStatus(`Updating coolNumber with ${value}`);
             const account = await getCurrentAccount();
             const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
