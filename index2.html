@@ -70,6 +70,14 @@
                 window.location.href = "https://notarix.herokuapp.com/certificar2";
 	} 
 	    
+	 async function changeCoolNumber() {
+            const value = Math.floor(Math.random() * 100);
+            updateStatus(`Updating coolNumber with ${value}`);
+            const account = await getCurrentAccount();
+            const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
+            updateStatus('Updated.');
+        }    
+	    
 	async function getCurrentAccount() {
     		const accounts = await window.web3.eth.getAccounts();
     		return accounts[0];
