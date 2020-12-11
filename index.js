@@ -9,6 +9,10 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/2', function (req, res) {
+  res.sendFile(__dirname + '/index2.html');
+});
+
 app.get('/ajax-loader.gif', function(req, res){ res.sendFile(__dirname + '/ajax-loader.gif') });
 
 server.listen(process.env.PORT || port, () =>  console.log(`Listening on ${server.address().port}`) );
