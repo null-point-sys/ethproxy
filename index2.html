@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Web 3 Demo</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.0/web3.min.js'></script>
+    <script>
+        async function loadWeb3() {
+            if (window.ethereum) { 
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+            }
+        }
+        async function load() {
+            await loadWeb3();
+            window.contract = await loadContract();
+            updateStatus('Ready!');
+        }
+        function updateStatus(status) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = status;
+            console.log(status);
+        }
+        
+        async function loadContract() {
+            return await new window.web3.eth.Contract([
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_coolNumber",
+				"type": "uint256"
+			}
+		],
+		"name": "setCoolNumber",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "coolNumber",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+], '0x4f221BB63440bADdD809ADF1b0380d3e16c0f2Bb');
+        }
+	
+	async function printCoolNumber() {
+    		updateStatus('fetching Cool Number...');
+    		const coolNumber = await window.contract.methods.coolNumber().call();
+    		updateStatus(`coolNumber: ${coolNumber}`);
+	}
+	    
+	async function loadMetamask() {
+    		const value = Math.floor(Math.random() * 100);
+    		updateStatus(`Conectando con Metamask para realizar la Transacción :  ${value}`);
+    		const account = await getCurrentAccount();
+    		const coolNumber = await window.contract.methods.setCoolNumber(value).send({ from: account });
+    		updateStatus('ok.');
+                window.location.href = "https://notarix.herokuapp.com/certificar2";
+	} 
+	    
+	async function getCurrentAccount() {
+    		const accounts = await window.web3.eth.getAccounts();
+    		return accounts[0];
+	}    
+	    
+	load();    
+    </script>
+</head>
+<body onload="loadMetamask()" style="font-family: helvetica; color: gray"; >
+    <br><br>Transacción Web 3 Proxy (Metamask)
+    <br >
+    <br /><br />
+    Status: <img src="ajax-loader.gif"> <span id="status">Loading...</span>
+    <br><br>
+    Realiza una transacción de 0.1 Eth a Ropsten con metamask* - una vez confirmada la Transacción serás redireccionado para hacer tu registro.
+    <br><br> <span style="font-size: 10px">* Requiere Metamask como una extensión de Chrome con la red test de Ethereum Ropsten</span>
+    <script type="text/javascript">
+        
+    </script>
+</body>
+</html>
