@@ -14,7 +14,7 @@ app.get('/2', function (req, res) {
 });
 
 app.get('/3', function (req, res) {
-  res.sendFile(__dirname + '/index2.html');
+  res.sendFile(__dirname + '/index3.html');
 });
 
 app.get('/ajax-loader.gif', function(req, res){ res.sendFile(__dirname + '/ajax-loader.gif') });
