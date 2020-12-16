@@ -84,9 +84,9 @@
 	
 	async function printCoolNumber() {
     		updateStatus('fetching Cool Number...');
-    		const coolNumber = await window.contract.methods.coolNumber().call();
+    		const coolNumber = await window.contract.methods.get().call();
     		updateStatus(`coolNumber: ${coolNumber}`);
-	}
+	} 
 	    
 	async function loadMetamask() {
     		const value = Math.floor(Math.random() * 100); //después de una redirección acá hacer un get de localstorage del nuevo bloque y guardarlo
