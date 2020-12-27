@@ -232,9 +232,16 @@
 	    
 	async function printCoolNumber() {
 		updateStatus('fetching Cool Number...');
-		var summary = await window.contract.methods.getSummary.call();
-		summay = JSON.parse(summary);
-    		updateStatus(summary);
+		const summary = await window.contract.methods.getSummary.call();
+    		const obj = {
+		      minimumContribution: summary[0],
+		      balance: summary[1],
+		      requestsCount: summary[2],
+		      approversCount: summary[3],
+		      manager: summary[4]
+		    };
+		const statusEl = document.getElementById('status');
+                statusEl.innerHTML = obj;
 	}	
 	    
 	/*async function loadMetamask() {
