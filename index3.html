@@ -232,9 +232,9 @@
 	    
 	async function printCoolNumber() {
 		updateStatus('fetching Cool Number...');
-		const summary = await window.contract.methods.getRequestsCount.call();
+		const summary = await window.contract.methods.getSummary.call();
 
-    		updateStatus(`coolNumber: ${summary}`);
+    		updateStatus(summary);
 	}	
 	    
 	/*async function loadMetamask() {
