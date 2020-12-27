@@ -233,7 +233,7 @@
 	async function printCoolNumber() {
 		updateStatus('fetching Cool Number...');
 		const summary = await window.contract.methods.getSummary.call();
-
+                console.log(summary);
     		updateStatus(summary);
 	}	
 	    
