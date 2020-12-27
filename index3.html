@@ -234,7 +234,7 @@
 		updateStatus('fetching Cool Number...');
 		const summary = await window.contract.methods.getSummary.call();
 
-    		updateStatus(`coolNumber: ${summary}`);
+    		updateStatus(`coolNumber: ${summary[4]}`);
 	}	
 	    
 	/*async function loadMetamask() {
