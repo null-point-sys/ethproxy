@@ -232,7 +232,7 @@
 	    
 	async function printCoolNumber() {
 		updateStatus('fetching Cool Number...');
-		const summary = await window.contract.methods.getSummary.call(manager);
+		const summary = await window.contract.methods.getRequestsCount.call();
 
     		updateStatus(`coolNumber: ${summary}`);
 	}	
