@@ -232,7 +232,7 @@
 	    
 	async function printCoolNumber() {
 		updateStatus('fetching Cool Number...');
-		const summary = await window.methods.getRequestsCount().call();
+		const summary = await window.Campaign.getRequestsCount().call();
 
     		updateStatus(`coolNumber: ${summary}`);
 	}	
